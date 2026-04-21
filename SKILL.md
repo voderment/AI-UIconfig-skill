@@ -288,6 +288,30 @@ Before finishing, verify these constraints:
 - relaunch behavior is explicit: source baseline by default, snapshot restore only when deliberately chosen
 - the project still builds
 
+## Maintenance Contract
+
+This skill must stay aligned with behavior validated in real projects.
+
+When a project changes any governed UI workflow behavior, explicitly decide whether the skill contract also changed.
+
+Examples that usually require re-evaluating the skill:
+
+- render-state boundary changes
+- preview coverage rules
+- token scope changes
+- runtime editor behavior changes
+- save/load snapshot behavior changes
+- revert semantics changes
+- writeback targeting or path resolution changes
+- localization rules for the tuning tool
+- baseline/default-session behavior changes
+
+If the change affects how the governed workflow is supposed to work, update the skill definition.
+
+If the skill definition changes, sync it to the public `AI-UIconfig-skill` repository as part of the same maintenance cycle.
+
+Pure project-specific bug fixes that do not change the reusable contract do not always require a skill update, but they must still be checked against this rule.
+
 ## Adoption Checklist for New UI
 
 When a new UI surface is added later, fold it in using this order:
@@ -329,4 +353,5 @@ When using this skill:
 - keep previews deterministic
 - keep the editor understandable
 - keep writeback explicit and narrow
+- after workflow-related changes, re-evaluate whether the skill and public repo need to be updated
 - compile often

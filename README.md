@@ -1,6 +1,10 @@
 # AI-UIconfig-skill
 
-`AI-UIconfig-skill` is a reusable agent skill for turning an existing SwiftUI project into a governed UI system that is easier to debug, easier to preview, and safer to tune at runtime without changing the product's visual intent by default.
+`AI-UIconfig-skill` is a reusable agent skill for making UI refinement more precise, more efficient, and more repeatable during app development.
+
+It is especially well suited to SwiftUI projects, where teams often need a better way to separate visual structure from runtime logic, preview screens in isolation, and fine-tune UI details without getting stuck in slow edit-build-run loops.
+
+Instead of treating UI tuning as scattered one-off edits, this skill helps turn it into a controlled workflow. The result is a codebase that is easier to iterate on, easier to inspect, and safer to adjust when visual polish matters.
 
 It is designed for projects where:
 
@@ -12,7 +16,7 @@ It is designed for projects where:
 
 ## What It Does
 
-This skill helps an agent transform a SwiftUI codebase into a structure with:
+This skill helps an agent reshape a SwiftUI codebase into a UI workflow that supports careful, fine-grained adjustment. In practice, that usually means:
 
 - `Render State` boundaries between runtime logic and pure UI
 - governed style tokens / metrics
@@ -21,6 +25,8 @@ This skill helps an agent transform a SwiftUI codebase into a structure with:
 - saved tuning snapshots that can be reloaded explicitly
 - per-token reset and whole-session revert behavior
 - narrow source writeback for approved leaf constants
+
+This is useful when you want to tune spacing, sizing, opacity, corner radius, semantic colors, or other stable visual parameters with more control than ad hoc source edits provide.
 
 ## Default Principle
 
@@ -32,7 +38,17 @@ That means:
 - existing interaction behavior should not be intentionally changed
 - the first goal is governance and debuggability, not visual reinvention
 
+The main goal is not to redesign the product. The main goal is to make UI work easier to refine and maintain.
+
 The skill can also work in `extend mode` when new UI already exists and needs to be folded into the same system.
+
+## Why It Fits SwiftUI
+
+SwiftUI is a particularly strong fit for this skill because SwiftUI projects benefit from clean render boundaries, preview-safe view inputs, and reusable style tokens.
+
+When a SwiftUI codebase grows, visual values often become distributed across many views and modifiers. That makes precise UI tuning harder than it needs to be. This skill brings those values into a more governed structure, so visual adjustments become faster, clearer, and less error-prone.
+
+It is most valuable when you want to keep the existing product intent, but gain a better way to inspect, preview, tune, and selectively write changes back into source.
 
 ## Core Workflow
 
@@ -64,8 +80,9 @@ This skill is a strong fit when:
 - the app is SwiftUI-based
 - the same UI surfaces are revisited often
 - layout and style values are repeated
-- designers or developers need faster visual iteration
+- designers or developers need faster and more precise visual iteration
 - the project benefits from Canvas previews and isolated mock states
+- the team wants a safer way to fine-tune UI without broad refactors
 
 This skill is not the right primary tool when:
 
@@ -79,6 +96,8 @@ This skill is not the right primary tool when:
   The actual skill definition for Codex-style agents.
 - [examples/PROMPTS.md](./examples/PROMPTS.md)
   Prompt examples for common usage patterns.
+- [LICENSE](./LICENSE)
+  The repository is released under the MIT License.
 
 ## How To Use
 
@@ -122,6 +141,8 @@ When the skill is applied well, the resulting project should usually have:
 - external saved snapshots
 - explicit writeback mappings to source constants
 
+More importantly, it should give the team a practical way to make precise UI adjustments during development without turning every visual tweak into a manual search-and-edit exercise.
+
 ## Notes On Localization
 
 For runtime tuning tools, this repository assumes:
@@ -139,8 +160,30 @@ Before publishing this skill for broad use, verify:
 - `SKILL.md` matches the behavior you actually validated in a real project
 - prompt examples still reflect the current workflow
 - repository instructions match your preferred local skill installation path
-- you have chosen and added an open-source license
+- the published license still matches how you want others to reuse the repository
+
+## Maintenance Rule
+
+This repository is expected to track behavior that has been validated in real projects.
+
+When the governed workflow changes in a project using this skill, the maintainer should explicitly check whether the skill contract changed too.
+
+Changes that usually require that check include:
+
+- render-state boundary changes
+- preview coverage changes
+- token scope changes
+- runtime editor behavior changes
+- save/load snapshot behavior changes
+- single-item or whole-session revert behavior changes
+- writeback targeting/path-resolution changes
+- localization rules for the tuning tool
+- source-baseline vs saved-snapshot session behavior changes
+
+If the reusable contract changed, update `SKILL.md` and sync the public repository in the same maintenance pass.
 
 ## License
 
-Choose and add your preferred open-source license before public release.
+This repository is released under the MIT License.
+
+That means other developers can use, modify, and distribute the skill with minimal restrictions, as long as the copyright notice and license text are preserved.
