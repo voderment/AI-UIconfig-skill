@@ -1,5 +1,7 @@
 # AI-UIconfig-skill
 
+<img width="1338" height="840" alt="CliperX Image 2026-04-21 13 16 45" src="https://github.com/user-attachments/assets/bd975a1c-1f14-491d-a297-0247d031314d" />
+
 `AI-UIconfig-skill` is a reusable agent skill for making UI refinement more precise, more efficient, and more repeatable during app development.
 
 It is especially well suited to SwiftUI projects, where teams often need a better way to separate visual structure from runtime logic, preview screens in isolation, and fine-tune UI details without getting stuck in slow edit-build-run loops.
