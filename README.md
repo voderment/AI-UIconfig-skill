@@ -25,13 +25,15 @@ This skill helps an agent reshape a SwiftUI codebase into a UI workflow that sup
 - `Render State` boundaries between runtime logic and pure UI
 - governed style tokens / metrics
 - preview mocks and preview galleries
-- a `DEBUG`-only live tuning editor
+- a `DEBUG`-only live tuning editor that is generated from the governed surfaces and parameters in the actual project, rather than a fixed generic panel
 - saved tuning snapshots that can be reloaded explicitly
 - per-token reset and whole-session revert behavior
 - narrow source writeback for approved leaf constants
 - writeback that preserves valid source literal syntax instead of risking file corruption
 - value-span writeback that preserves each declaration's existing structure and comments
 - a single source-defined startup baseline so writeback changes survive rebuilds instead of diverging from a duplicate token default table
+
+This editor is not meant to be a fixed control panel with a predetermined layout. It should be generated from the real structure of the project and the governed values that actually exist, so the tuning UI and parameter set stay aligned with the app instead of forcing everything into one rigid template.
 
 This is useful when you want to tune spacing, sizing, opacity, corner radius, semantic colors, or other stable visual parameters with more control than ad hoc source edits provide.
 
@@ -66,7 +68,7 @@ The expected workflow is:
 3. Introduce render-state inputs for preview-safe UI.
 4. Tokenize stable styling values.
 5. Build preview mocks and gallery states.
-6. Add a debug-only live tuning editor.
+6. Add a debug-only live tuning editor that is generated from the project's actual governed surfaces and parameters.
 7. Save snapshots and support explicit reload of saved configs.
 8. Add precise writeback for approved source constants.
 9. Validate build, previews, and manual runtime behavior.
