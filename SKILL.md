@@ -69,6 +69,7 @@ When fully applied, this skill should leave the project with these building bloc
 7. A save/export workspace for tuning snapshots.
 8. A writeback service that updates approved source constants.
 9. A saved-config list that can explicitly reload prior tuning snapshots.
+10. Optional debug-only surface controls that can trigger stable mock scenes and pin governed UI states open for tuning.
 
 ## Non-Goals
 
@@ -200,12 +201,16 @@ Add a debug-only tuning tool that:
 - supports reverting the whole session to the saved baseline
 - supports reverting a single governed parameter without discarding other current edits
 - exposes a saved-config list so prior tuning snapshots can be reloaded explicitly
+- can trigger explicit mock presentation states for isolated UI debugging when live runtime data is inconvenient
+- can pin peek or expanded states open while tuning so shell surfaces do not auto-collapse mid-adjustment
 
 Rules:
 
 - the tuning tool must be `DEBUG` only unless the user explicitly wants otherwise
 - release builds must not expose the editor
 - editor UI should be safe and inspectable, not magical
+- debug mock scenes and pinning controls must be clearly framed as development aids, not product features
+- mock scenes should be backed by stable sample data routed through the same render boundaries as the real UI when practical
 - by default, app relaunch should return to the source-defined baseline unless the user explicitly wants auto-restore
 - saved configs should remain available as explicit snapshots the user can choose to reload for a new tuning session
 - the runtime token baseline must derive from the same source constants that writeback edits; do not keep a second divergent hardcoded default table

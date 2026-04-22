@@ -157,6 +157,8 @@ For runtime tuning tools, this repository assumes:
 - token keys stay code-facing and stable
 - parameter titles may remain aligned to source semantics
 - explanatory descriptions and tool chrome should follow the current UI language
+- debug-only mock scene triggers and shell pinning controls are valid when they help isolate UI states that are hard to reproduce live
+- those controls should remain clearly marked as development aids rather than product features
 
 This keeps the tool understandable without polluting the code-facing layer.
 
