@@ -1,4 +1,5 @@
-<img width="1955" height="1297" alt="CliperX Image 2026-04-22 11 44 52-2" src="https://github.com/user-attachments/assets/1afe7512-d76a-47ce-a371-c97fcd0242c1" />
+<img width="1440" height="975" alt="Xnip2026-04-22_15-08-10" src="https://github.com/user-attachments/assets/dc3dbbc9-1ac7-40bc-89f8-dda444e82b71" />
+
 
 English | [简体中文](./README.zh-CN.md)
 
