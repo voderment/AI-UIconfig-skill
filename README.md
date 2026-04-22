@@ -33,7 +33,7 @@ When applied well, the project usually gains:
 - preview-safe render-state inputs
 - governed tokens and metrics
 - preview mocks and gallery coverage for key states
-- a `DEBUG`-only live tuning editor generated from real governed surfaces
+- a `DEBUG`-only live tuning editor generated from real governed surfaces and aligned, where practical, with the host project's existing design language
 - saved tuning snapshots and explicit reload
 - precise writeback for approved leaf constants
 

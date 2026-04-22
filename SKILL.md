@@ -209,6 +209,10 @@ Rules:
 - the tuning tool must be `DEBUG` only unless the user explicitly wants otherwise
 - release builds must not expose the editor
 - editor UI should be safe and inspectable, not magical
+- when practical, the tuning tool should inherit the host project's existing design language instead of introducing a generic inspector style
+- prefer reusing the project's own tokens, typography, color semantics, spacing scale, corner radii, and shared UI primitives for the editor chrome and controls when those inputs are stable enough
+- if the project already has an internal settings, debug, or utility-chrome pattern, follow that pattern first
+- fall back to a neutral debug presentation only when the project does not yet have a stable style language worth inheriting
 - debug mock scenes and pinning controls must be clearly framed as development aids, not product features
 - mock scenes should be backed by stable sample data routed through the same render boundaries as the real UI when practical
 - by default, app relaunch should return to the source-defined baseline unless the user explicitly wants auto-restore
