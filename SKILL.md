@@ -208,6 +208,7 @@ Rules:
 - editor UI should be safe and inspectable, not magical
 - by default, app relaunch should return to the source-defined baseline unless the user explicitly wants auto-restore
 - saved configs should remain available as explicit snapshots the user can choose to reload for a new tuning session
+- the runtime token baseline must derive from the same source constants that writeback edits; do not keep a second divergent hardcoded default table
 
 ### 7. Add Precise Writeback
 
@@ -217,11 +218,15 @@ Writeback should:
 - update only mapped leaf constants in source
 - preserve hand-written structure, comments, and derived values
 - avoid broad file rewrites when unnecessary
+- emit syntactically valid source literals for every supported value type
+- avoid replacement strategies that can corrupt source text through regex-template escaping or truncated literal serialization
+- preserve each source declaration's prefix and suffix and replace only the matched value span
 
 Rules:
 
 - use explicit token-to-source mappings
 - do not perform destructive wide rewrites of style files
+- fail explicitly when a mapped constant cannot be matched exactly once
 - generated external snapshots should not automatically become app target inputs
 
 ### 8. Validate

@@ -27,6 +27,9 @@ This skill helps an agent reshape a SwiftUI codebase into a UI workflow that sup
 - saved tuning snapshots that can be reloaded explicitly
 - per-token reset and whole-session revert behavior
 - narrow source writeback for approved leaf constants
+- writeback that preserves valid source literal syntax instead of risking file corruption
+- value-span writeback that preserves each declaration's existing structure and comments
+- a single source-defined startup baseline so writeback changes survive rebuilds instead of diverging from a duplicate token default table
 
 This is useful when you want to tune spacing, sizing, opacity, corner radius, semantic colors, or other stable visual parameters with more control than ad hoc source edits provide.
 
