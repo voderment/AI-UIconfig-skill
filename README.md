@@ -1,6 +1,7 @@
-# AI-UIconfig-skill
+<img width="1955" height="1297" alt="CliperX Image 2026-04-22 11 44 52-2" src="https://github.com/user-attachments/assets/1afe7512-d76a-47ce-a371-c97fcd0242c1" />
 
-<img width="1338" height="840" alt="CliperX Image 2026-04-21 13 16 45" src="https://github.com/user-attachments/assets/bd975a1c-1f14-491d-a297-0247d031314d" />
+
+# AI-UIconfig-skill
 
 `AI-UIconfig-skill` is a reusable agent skill for making UI refinement more precise, more efficient, and more repeatable during app development.
 
